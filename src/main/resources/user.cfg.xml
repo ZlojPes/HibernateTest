@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ospavliuk.User" table="user">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="firstName" column="first_name" type="string"/>
+        <property name="lastName" column="last_name" type="string"/>
+        <property name="age" column="age" type="int" />
+
+        <many-to-one name="role" class="com.ospavliuk.Role">
+            <column name="role_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
